@@ -72,12 +72,14 @@ from typing import List
 
 class Solution:
     def recoverOrder(self, order: List[int], friends: List[int]) -> List[int]:
+        # We can use a set to store the friends' IDs for O(1) lookups. Then, we can iterate through the order array and check if each ID is in the friends set. If it is, we add it to the result list. This way, we can restore the finishing order of our friends efficiently.
+        # Time complexity: O(n+m) where n is the length of the order array and m is the number of friends
+        # Space complexity: O(m) where m is the number of friends
+
         # Use a set for friends for O(1) lookups
         friends_set = set(friends)
 
-        # Iterate through the finishing order and collect friends in the correct order
-        # Time complexity: O(n+m) where n is the length of the order array and m is the number of friends
-        # Space complexity: O(m) where m is the number of friends
+        # Iterate through the order array and collect the IDs of friends in their finishing order
         return [f for f in order if f in friends_set]
 
 

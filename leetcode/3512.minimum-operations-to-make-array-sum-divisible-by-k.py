@@ -91,6 +91,8 @@ class Solution:
         # In each operation, we can decrease an element by 1. To make the sum of the array divisible by k, we need to find the remainder of the sum when divided by k. The number of operations needed will be equal to this remainder, because we can decrease any element to reduce the sum by 1 in each operation.
         # Time complexity: O(n) where n is the length of the input array
         # Space complexity: O(1) since we are using a constant amount of space
+
+        # Calculate the sum of the array and find the remainder when divided by k
         return sum(nums) % k
 
 

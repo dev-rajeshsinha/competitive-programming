@@ -67,6 +67,7 @@ class Solution:
         # Time complexity: O(n) where n is the length of the input array
         # Space complexity: O(n) for the new array
 
+        # Return a new array where each element is nums[nums[i]]
         # return [nums[nums[i]] for i in range(len(nums))]
 
         # Optimized approach by modifying the original array in place. We can encode the new value in the original array by using a formula that combines the old value and the new value. The formula is:
