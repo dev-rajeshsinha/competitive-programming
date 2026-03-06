@@ -1,0 +1,35 @@
+Brian Kernighan's Algorithm: This algorithm is used to count the number of set bits (1s) in a binary representation of a number. The idea is to repeatedly flip the rightmost significant set bit of the number until it becomes zero. The number of times we can flip the bits before the number becomes zero gives us the count of set bits.
+
+For example, if we have a number `n`, we can use the following code to count the number of set bits using Brian Kernighan's algorithm:
+
+```python
+
+def count_set_bits(n):
+    count = 0
+    while n > 0:
+        n &= n - 1  # Flip the rightmost set bit
+        count += 1
+    return count
+```
+
+If we want to visualize how this works, let's take an example with the number `n = 13` (which is `1101` in binary):
+
+1. Start with `n = 13` (binary `1101`):
+   - `n-1` will be `12` (binary `1100`).
+   - `n & (n - 1)` will flip the rightmost set bit:
+   - `1101 & 1100` = `1100` (which is 12 in decimal)
+   - Count becomes 1.
+
+2. Now `n = 12` (binary `1100`):
+   - `n-1` will be `11` (binary `1011`).
+   - `n & (n - 1)` will flip the rightmost set bit:
+   - `1100 & 1011` = `1000` (which is 8 in decimal)
+   - Count becomes 2.
+
+3. Now `n = 8` (binary `1000`):
+   - `n-1` will be `7` (binary `0111`).
+   - `n & (n - 1)` will flip the rightmost set bit:
+   - `1000 & 0111` = `0000` (which is 0 in decimal)
+   - Count becomes 3.
+
+4. Now `n = 0`, we stop the loop. The total count of set bits in `13` is `3`.
