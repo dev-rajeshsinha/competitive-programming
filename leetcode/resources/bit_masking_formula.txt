@@ -1,0 +1,12 @@
+1. To check if a decimal number `n` has consecutive zeros in its binary representation, we can use the following formula:
+
+   (n^mask) & ((n^mask) >> 1) == 0
+
+   n: The decimal number we want to check.
+   mask: A bitmask of length same as the binary representation of n, that has 1s in every bit position
+
+   If the result of the above expression is 0, it means that there are no consecutive zeros in the binary representation of n. Otherwise, if the result is not 0, it indicates that there are consecutive zeros present.
+
+
+
+   
