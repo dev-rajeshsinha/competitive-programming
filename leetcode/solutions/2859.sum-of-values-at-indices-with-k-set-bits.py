@@ -79,6 +79,8 @@ class Solution:
         # Time complexity: O(n), where n is the length of the nums array, since we need to check each index once.
         # Space complexity: O(1), as we are using a constant amount of extra space to store the sum.
 
+        # Alternatively, we could also use `Gosper's Hack` to get the value of the next index with k set bits rather than looping through all indices.
+
         # Using a generator expression to iterate through the indices and values of nums, we check if the bit count of the index is equal to k. If it is, we include the corresponding value in the sum. Finally, we return the total sum.
         return sum(value for index, value in enumerate(nums) if index.bit_count() == k)
 

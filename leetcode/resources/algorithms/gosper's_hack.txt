@@ -1,0 +1,40 @@
+Gosper's Hack: Gosper's Hack is a technique used to find the next higher number with the same number of set bits (1s) in its binary representation. This is particularly useful in combinatorial problems where we need to generate combinations of a certain size.
+
+The algorithm works as follows:
+
+1. Start with a number `x` that has a certain number of set bits.
+2. Calculate the rightmost set bit of `x` using `x & -x`.
+3. Add this rightmost set bit to `x` to get the next number with the same number of set bits.
+4. Calculate the new rightmost set bit of the updated `x` and adjust the remaining bits accordingly.
+
+Here is the implementation of Gosper's Hack in Python:
+
+```python
+def get_next_with_same_bits(n: int) -> int:
+    """
+    Generates the next highest integer with the exact same number of set bits (1s) as 'n'.
+    This algorithm is known as Gosper's Hack.
+    """
+    # Edge case: If the number is 0, there are no 1s to shift. 
+    # (There is no "next" number with zero 1s).
+    if n == 0:
+        return 0
+
+    # Step 1: Find the rightmost '1' bit
+    # This acts as our anchor to find the lowest block of 1s.
+    right_most_set_bit = n & -n
+
+    # Step 2: The "Bump"
+    # By adding 'right_most_set_bit' to 'n', we cause a binary ripple effect that shifts the 
+    # leftmost '1' in the block exactly one space to the left, making the number bigger.
+    r = n + right_most_set_bit
+
+    # Step 3: The "Cleanup"
+    # The bump wiped out some 1s. We find exactly how many got wiped out (r ^ n), 
+    # adjust the count (>> 2), and shove them as far to the right as possible (// right_most_set_bit).
+    cleanup = ((r ^ n) >> 2) // right_most_set_bit
+
+    # Step 4: Glue it together
+    # We combine the newly bumped upper half with our nicely aligned lower half.
+    return r | cleanup
+```
