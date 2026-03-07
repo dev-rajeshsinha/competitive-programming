@@ -7,6 +7,13 @@
 
    If the result of the above expression is 0, it means that there are no consecutive zeros in the binary representation of n. Otherwise, if the result is not 0, it indicates that there are consecutive zeros present.
 
+2. To check the rightmost set bit (1) in a binary number `n`, we can use the following formula:
 
+   n & (-n)
+
+   n: The decimal number we want to check.
+   -n: The two's complement of n, which can be calculated as ~n + 1.
+
+   This expression will return a number that has only the rightmost set bit of n. If n is 0, it will return 0. Otherwise, it will return a number that represents the rightmost set bit in the binary representation of n.
 
    
