@@ -16,4 +16,15 @@
 
    This expression will return a number that has only the rightmost set bit of n. If n is 0, it will return 0. Otherwise, it will return a number that represents the rightmost set bit in the binary representation of n.
 
+3. To check the rightmost unset bit (0) in a binary number `n`, we can use the following formula:
+
+   ~n & -(~n)
+
+   n: The decimal number we want to check.
+   ~n: The bitwise NOT of n, which flips all the bits of n.
+   -(~n): This computes the two's complement of ~n.
+
+
+   This expression will return a number that has only one bit set, which corresponds to the rightmost unset bit of n. If n is -1 (all bits are set), it will return 0. Otherwise, it will return a number that represents the rightmost unset bit in the binary representation of n.
+
    
