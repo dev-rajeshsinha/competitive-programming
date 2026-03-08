@@ -1,0 +1,16 @@
+1. If there is a (N x M) grid, and we want to flatten it into a 1D array, we can use the following formula to find the index of an element in the flattened array:
+
+   index_in_1D_array = current_row * M + current_column
+
+   N: The total number of rows in the grid.
+   M: The total number of columns in the grid.
+
+   current_row: The row at which the current element is located in the grid (0-indexed).
+   current_column: The column  at which the current element is located in the grid (0-indexed).
+
+   This formula calculates the index of the element in the flattened array by multiplying the row number by the number of columns and then adding the column number.
+
+   If we want to find the element in the grid given an index in the flattened array, we can use the following formulas:
+
+   current_row = index_in_1D_array // M
+   current_column = index_in_1D_array % M
