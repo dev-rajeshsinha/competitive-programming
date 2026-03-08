@@ -27,4 +27,13 @@
 
    This expression will return a number that has only one bit set, which corresponds to the rightmost unset bit of n. If n is -1 (all bits are set), it will return 0. Otherwise, it will return a number that represents the rightmost unset bit in the binary representation of n.
 
+4. To toggle the bits of a binary number `n`, we can use the following formula:
+
+   n ^ mask
+
+   n: The decimal number we want to toggle.
+   mask: A bitmask of same number of bits as n, and that has 1s in all the bit positions of n.
+
+   This expression will return a new number where the bits in n that correspond to the 1s in the mask are toggled (i.e., changed from 0 to 1 or from 1 to 0). The bits in n that correspond to the 0s in the mask will remain unchanged.
+
    
